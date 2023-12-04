@@ -16,6 +16,19 @@ const LatestPosts = () => {
     setPosts(posts)
   }
 
+  async function updatePost(id, title, description) {
+    const response = await fetch(`http://localhost:3001/posts/${id}`, {
+      method: 'PATCH',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title,
+        description: description
+      })
+    })
+  }
+
   useEffect(() => {
     getPosts()
   }, [])
@@ -33,6 +46,7 @@ const LatestPosts = () => {
           name: "Fer"
         }}
         deletePost={deletePost}
+        updatePost={updatePost}
       />)}
     </div>
   )
