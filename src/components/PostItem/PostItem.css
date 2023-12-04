@@ -1,0 +1,9 @@
+.post-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.post-item .post-meta {
+  display: flex;
+  justify-content: space-between;
+}

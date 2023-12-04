@@ -8,10 +8,21 @@ function App() {
 
   return (
     <>
-      <Header />
-      <LatestPosts />
-      <UsersList />
-      <Footer />
+      <div id="app">
+        <div id="header">
+          <Header />
+        </div>
+        <div id="content-left">
+          <LatestPosts />
+        </div>
+        <div id="content-right">
+          <UsersList />
+        </div>
+        <div id="footer">
+          <Footer />
+        </div>
+      </div>
+
     </>
   )
 }

@@ -1,0 +1,25 @@
+#app {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  grid-template-areas: 
+    "header header"
+    "left right"
+    "footer footer"
+  ;
+}
+
+#header {
+  grid-area: header;
+}
+
+#content-left {
+  grid-area: left;
+}
+
+#content-right {
+  grid-area: right;
+}
+
+#footer {
+  grid-area: footer;
+}
