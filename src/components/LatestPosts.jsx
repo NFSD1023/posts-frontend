@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react"
 import PostItem from "./PostItem/PostItem"
 
-
-
 const LatestPosts = () => {
+  const [posts, setPosts] = useState([])
+  const deletePost = async (id) => {
+    await fetch(`http://localhost:3001/posts/${id}`, {
+      method: 'DELETE'
+    })
+    setPosts(posts.filter(post => post._id !== id))
+  }
+
   async function getPosts() {
     const postsResponse = await fetch('http://localhost:3001/posts/')
     const posts = await postsResponse.json()
     setPosts(posts)
   }
 
-  const [posts, setPosts] = useState([])
   useEffect(() => {
     getPosts()
   }, [])
@@ -27,6 +32,7 @@ const LatestPosts = () => {
           _id: "asdfasdf",
           name: "Fer"
         }}
+        deletePost={deletePost}
       />)}
     </div>
   )
